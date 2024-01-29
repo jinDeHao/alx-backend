@@ -48,7 +48,6 @@ class Server:
         cur = index if index in self.__indexed_dataset\
             else [i for i in range(index, data_len)
                   if i in self.__indexed_dataset][0]
-        print(cur)
         return {
             "index": index,
             "data": [
