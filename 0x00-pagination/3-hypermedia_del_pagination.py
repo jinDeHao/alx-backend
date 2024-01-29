@@ -51,13 +51,13 @@ class Server:
         print(cur)
         return {
             "index": index,
-            "next_index": cur + page_size,
-            "page_size": page_size,
             "data": [
                 datakey[i]
                 for i in range(
                                 cur,
                                 (cur + page_size)
                             ) if i in datakey
-                    ]
+                    ],
+            "page_size": page_size,
+            "next_index": cur + page_size
         }
