@@ -40,6 +40,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """Deletion-resilient hypermedia pagination """
         datakey = self.indexed_dataset()
         assert isinstance(index, int) and index < len(datakey)
         assert isinstance(page_size, int) and page_size > 0
