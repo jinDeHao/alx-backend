@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from .base.base_caching import BaseCaching
+from base.base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
