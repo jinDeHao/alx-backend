@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Basic dictionary """
 from base.base_caching import BaseCaching
 
 
