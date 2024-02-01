@@ -43,6 +43,9 @@ class LFUCache(BaseCaching):
         return self.cache_data[key]
 
     def LFU_key(self):
+        """
+        find the least frequancy used key
+        """
         least = -1
         for key, val in self.used.items():
             if least == -1 or self.used[least] > val:
