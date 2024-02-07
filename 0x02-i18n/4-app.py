@@ -35,6 +35,9 @@ def main():
     """
     simply outputs Welcome to Holberton
     """
+    lang = request.args.get('locale')
+    if lang and lang in app.config['LANGUAGES']:
+        return lang
     return render_template('4-index.html')
 
 
