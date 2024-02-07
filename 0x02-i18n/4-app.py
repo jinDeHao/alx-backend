@@ -27,6 +27,9 @@ def get_locale():
     """
     Get locale from request
     """
+    lang = request.args.get('locale')
+    if lang and lang in app.config['LANGUAGES']:
+        return lang
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
@@ -35,9 +38,6 @@ def main():
     """
     simply outputs Welcome to Holberton
     """
-    lang = request.args.get('locale')
-    if lang and lang in app.config['LANGUAGES']:
-        return lang
     return render_template('4-index.html')
 
 
