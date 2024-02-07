@@ -46,7 +46,6 @@ def before_request():
     g.user = get_user(id)
 
 
-
 @babel.localeselector
 def get_locale():
     """
