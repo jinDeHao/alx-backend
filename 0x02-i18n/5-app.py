@@ -34,7 +34,7 @@ def get_user(id):
     """
     Mock logging in
     """
-    return users[id] if id is not None else None
+    return users[int(id)] if id is not None else None
 
 
 @app.before_request
@@ -44,7 +44,6 @@ def before_request():
     """
     id = request.args.get('login_as', None)
     g.user = get_user(id)
-
 
 
 @babel.localeselector
@@ -63,7 +62,7 @@ def main():
     """
     simply outputs Welcome to Holberton
     """
-    return render_template('5-index.html')
+    return render_template('5-index.html', user=g.user)
 
 
 if __name__ == '__main__':
