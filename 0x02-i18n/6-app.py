@@ -77,7 +77,7 @@ def main():
     """
     simply outputs Welcome to Holberton
     """
-    return render_template('6-index.html')
+    return render_template('6-index.html', user=g.user)
 
 
 if __name__ == '__main__':
