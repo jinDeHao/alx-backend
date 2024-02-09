@@ -30,7 +30,7 @@ users = {
 }
 
 
-def get_user(id):
+def get_user(id) -> dict:
     """
     Mock logging in
     """
@@ -47,7 +47,7 @@ def before_request():
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """
     Get locale from request
     """
@@ -58,7 +58,7 @@ def get_locale():
 
 
 @app.route('/', strict_slashes=False)
-def main():
+def main() -> str:
     """
     simply outputs Welcome to Holberton
     """
