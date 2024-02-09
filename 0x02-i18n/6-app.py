@@ -52,9 +52,9 @@ def get_locale():
     Get locale from request
     """
     languages = app.config['LANGUAGES']
-    lang = request.args.get('locale')
-    if lang and lang in languages:
-        return lang
+    local = request.args.get("locale")
+    if local in languages:
+        return local
 
     if g.user:
         local = g.user.get('locale')
