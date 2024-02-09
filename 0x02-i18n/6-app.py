@@ -2,7 +2,7 @@
 """
 Basic Babel setup
 """
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request, g, session
 from flask_babel import Babel, gettext
 
 
@@ -51,12 +51,15 @@ def get_locale():
     """
     Get locale from request
     """
-    cLang = app.config['LANGUAGES']
     lang = request.args.get('locale')
-    if lang and lang in cLang:
+    if lang and lang in app.config['LANGUAGES']:
         return lang
 
-    request_locale = request.accept_languages.best_match(cLang)
+    user_locale = session.get('locale')
+    if user_locale and user_locale in app.config['LANGUAGES']:
+        return user_locale
+
+    request_locale = request.accept_languages.best_match(app.config['LANGUAGES'])
     if request_locale:
         return request_locale
 
