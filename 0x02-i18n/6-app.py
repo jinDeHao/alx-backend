@@ -51,10 +51,16 @@ def get_locale():
     """
     Get locale from request
     """
+    cLang = app.config['LANGUAGES']
     lang = request.args.get('locale')
-    if lang and lang in app.config['LANGUAGES']:
+    if lang and lang in cLang:
         return lang
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+    request_locale = request.accept_languages.best_match(cLang)
+    if request_locale:
+        return request_locale
+
+    return app.config['BABEL_DEFAULT_LOCALE']
 
 
 @app.route('/', strict_slashes=False)
