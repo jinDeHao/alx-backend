@@ -34,7 +34,7 @@ def get_user(id):
     """
     Mock logging in
     """
-    return users["id"] if id is not None else None
+    return users[id] if id is not None else None
 
 
 @app.before_request
