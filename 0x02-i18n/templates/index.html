@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <!-- Translatable string: This message is showing home title. -->
+        {{ gettext('home_title') }}
+    </title>
+</head>
+
+<body>
+    <h1>
+        <!-- Translatable string: This message is showing home header. -->
+        {{ gettext('home_header') }}
+    </h1>
+    {% if g.user %}
+    <p>
+        <!-- Translatable string: This message is displayed when the user is logged in. -->
+        {{ gettext('logged_in_as', username= g.user.name) }}
+    </p>
+    {% else %}
+
+    <p>
+        <!-- Translatable string: This message is displayed when the user is not logged in. -->
+        {{ gettext('not_logged_in') }}
+    </p>
+    {% endif %}
+    <p>
+        {{ gettext('current_time_is') }}
+    </p>
+</body>
+
+</html>
