@@ -65,7 +65,7 @@ def get_locale():
 
     if preferred_local:
         for entry in preferred_local.split(',')[1:]:
-            lang = entry.split(';')[0]
+            lang = entry.split(';')[0].strip()
             if lang in languages:
                 return lang
 
@@ -77,7 +77,7 @@ def main():
     """
     simply outputs Welcome to Holberton
     """
-    return render_template('6-index.html', user=g.user)
+    return render_template('6-index.html')
 
 
 if __name__ == '__main__':
